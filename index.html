@@ -1184,19 +1184,19 @@ $(document).ready(function(){
   $('.message-form').fadeOut(300)
   $('#form').on('submit', function(e){
       e.preventDefault();
-      f_userName = "Dương Lộc-Phương Ánh"
-      f_check = $('input[type="radio"]:checked').val()
+      // f_userName = "Dương Lộc-Phương Ánh"
+      // f_check = $('input[type="radio"]:checked').val()
       f_name = $(this).find('#f_name').val()
       f_numUser = $('#num_user').find('option:selected').val()
       f_select = $('#wedding-select').find('option:selected').val()
       f_text = $(this).find('#f_text').val()
       var form_data = {
-          'entry.737056527': f_userName,
-          'entry.642873731': f_check,
-          'entry.1699210899': f_name,
-          'entry.369695229': f_numUser,
-          'entry.1528762541': f_select,
-          'entry.1679764871': f_text,
+          // 'entry.737056527': f_userName,
+          // 'entry.642873731': f_check,
+          'Name': f_name,
+          'Attend': f_select,
+          'Number': f_numUser,
+          'Note': f_text,
       }
      $('.wedding-submit[type="submit"]').text('Đang gửi ...')
      $.ajax({

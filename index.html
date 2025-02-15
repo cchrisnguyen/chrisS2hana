@@ -1022,7 +1022,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <!-- LỜI CHÚC -->
 
 <!-- TIN NHẮN -->
-<section id="message" class="section-message uk-background-cover uk-section" style="background-image:url(images/img1.jpg); display:block">
+<!-- <section id="message" class="section-message uk-background-cover uk-section" style="background-image:url(images/img1.jpg); display:block">
 	<div class="uk-position-cover uk-overlay uk-overlay-primary" style="opacity:.5"> </div>
       <div class="message-container container uk-position-relative uk-position-z-index">
         <h2 class="section-title uk-light" style="color:white">
@@ -1052,7 +1052,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
           </form>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- END TIN NHẮN -->
 <script>
 fetch('/wp-json/wp/v2/comments?post=154&per_page=100',
@@ -1125,7 +1125,7 @@ fetch('/wp-json/wp/v2/comments?post=154&per_page=100',
       <h2 class="section-title">Xác nhận tham dự</h2>
       <p class="sub-title">Hãy cho chúng tôi biết bạn sẽ đến tham dự nhé!</p>
       <div class="form-container">
-              <div class="group-radio">
+              <!-- <div class="group-radio">
         
           <label class="radio-container">TƯ GIA            <span class="tooltip"> <p>ẤP TÂN PHÚ A, XÃ TÂN BÌNH, HUYỆN THANH BÌNH, TỈNH ĐỒNG THÁP</p>
  </span>
@@ -1138,7 +1138,7 @@ fetch('/wp-json/wp/v2/comments?post=154&per_page=100',
             <input type="radio" name="fav_language" id="nha_trai" value="TƯ GIA">
             <span class="checkmark"></span>
           </label>
-                  </div>
+                  </div> -->
                 <div class="group-input">
           <label>Tên Khách Mời</label>
           <input type="text" class="input" id="f_name" required="" placeholder="Tên Khách Mời">
@@ -1148,8 +1148,8 @@ fetch('/wp-json/wp/v2/comments?post=154&per_page=100',
           <p class="group-title"></p>
           <div class="group-select">
             <select name="" id="wedding-select" class="uk-text-truncate" style="max-width:320px">
-              <option value="Có tôi sẽ đến">Có tôi sẽ đến </option>
-              <option value="Xin Lỗi tôi không tham dự được !">Xin Lỗi tôi không tham dự được ! </option>
+              <option value="Có tôi sẽ đến">Có, tôi sẽ đến</option>
+              <option value="Xin Lỗi tôi không tham dự được !">Xin lỗi, tôi không tham dự được! </option>
             </select>
             <i class="bx bx-chevron-down"></i>
           </div>
@@ -1200,7 +1200,7 @@ $(document).ready(function(){
       }
      $('.wedding-submit[type="submit"]').text('Đang gửi ...')
      $.ajax({
-      url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdD9g3WsFXklx1iJ2WTwnaKq7qXDh8fLcOetjSV8GMatzoWaA/formResponse",
+      url: "https://script.google.com/macros/s/AKfycbwiWivh1i0EYF67E7l32bsDJhFqjdLROW4ZpJ5hMV5QHXSOEfOOzGJrmzae2CdhAk-G/exec",
       type: "POST",
       data : form_data,
       dataType: "xml",
@@ -1281,9 +1281,9 @@ $(document).ready(function(){
 	<div class="uk-overlay uk-overlay-primary uk-position-cover"> </div>
       <img src="images/camon.jpg" alt="" class="thankyou-bg thankyou_img" style="object-position:">
       <div class="thankyou-body container uk-position-relative uk-position-z-index">
-        <h2 class="script-font uk-heading-medium uk-text-center text-white" data-aos="fade-up" data-aos-duration="2000">CẢM ƠN</h2>
+        <h2 class="script-font uk-heading-medium uk-text-center text-white" data-aos="fade-up" data-aos-duration="2000">XIN CẢM ƠN</h2>
         <!-- <h2 class="section-title uk-heading-medium uk-text-center text-white" data-aos="fade-up" data-aos-duration="2000">CẢM ƠN</h2> -->
-        <p class="thankyou-des" data-aos="fade" data-aos-duration="3000"></p><p>Sự hiện diện của quý vị là niềm vui và vinh hạnh cho gia đình chúng mình!</p>
+        <p class="thankyou-des" data-aos="fade" data-aos-duration="3000"></p><p>Sự hiện diện của quý khách là niềm vui và vinh hạnh cho gia đình chúng tôi!</p>
 <p></p>
       
     </div></section>

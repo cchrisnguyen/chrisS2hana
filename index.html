@@ -1215,7 +1215,13 @@ $(document).ready(function(){
               $('.message-form').fadeIn(300)
           },
           200: function() {
-              alert('200')
+              mess_form = 'Chúng mình xin chân thành cám ơn!'
+              $('.message-form').html(mess_form)
+              $('button[type="submit"]').addClass('success')
+              $('button[type="submit"]').removeClass('btn_primary')
+              $('button[type="submit"]').attr('disabled','true')
+              $('button[type="submit"]').text('Đã xác nhận')
+              $('.message-form').fadeIn(300)
           }
       }
       })

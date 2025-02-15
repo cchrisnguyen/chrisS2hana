@@ -1147,15 +1147,22 @@ fetch('/wp-json/wp/v2/comments?post=154&per_page=100',
         <div class="group-input">
           <p class="group-title"></p>
           <div class="group-select">
-            <select name="" id="wedding-select" class="uk-text-truncate" style="max-width:320px">
+            <select name="" id="yesno" class="uk-text-truncate" style="max-width:320px">
               <option value="Có tôi sẽ đến">Có, tôi sẽ đến</option>
               <option value="Xin Lỗi tôi không tham dự được !">Xin lỗi, tôi không tham dự được! </option>
             </select>
             <i class="bx bx-chevron-down"></i>
           </div>
           <div class="group-select">
+            <select name="" id="attend_day">
+              <option value="27">Chỉ ngày 27</option>
+              <option value="26-27">Cả 2 ngày</option>
+            </select>
+            <i class="bx bx-chevron-down"></i>
+        </div>
+          <div class="group-select">
             <select name="" id="num_user">
-              <option value="1 Người">1 Người </option>
+              <option value="1 Người">1 Người</option>
               <option value="2 Người">2 Người</option>
               <option value="3 Người">3 Người</option>
             </select>
@@ -1187,14 +1194,16 @@ $(document).ready(function(){
       // f_userName = "Dương Lộc-Phương Ánh"
       // f_check = $('input[type="radio"]:checked').val()
       f_name = $(this).find('#f_name').val()
+      f_select = $('#yesno').find('option:selected').val()
+      f_attendday = $('#attend_day').find('option:selected').val()
       f_numUser = $('#num_user').find('option:selected').val()
-      f_select = $('#wedding-select').find('option:selected').val()
       f_text = $(this).find('#f_text').val()
       var form_data = {
           // 'entry.737056527': f_userName,
           // 'entry.642873731': f_check,
           'Name': f_name,
           'Attend': f_select,
+          'Days': f_attendday,
           'Number': f_numUser,
           'Note': f_text,
       }

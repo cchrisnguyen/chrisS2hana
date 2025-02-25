@@ -81,36 +81,32 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel="stylesheet" id="footer style-css" href="css/footer.css" media="all">
 <link rel="stylesheet" id="wedding style-css" href="css/wedding.css" media="all">
 <link rel="stylesheet" id="theme-css" href="css/theme.css" media="all">
-<link rel="stylesheet" href="css/bootstrap.css">
+
 <script src="js/jquery.min.js" id="jquery-core-js"></script>
 <script src="js/jquery-migrate.min.js" id="jquery-migrate-js"></script>
 <script src="js/jquery.min_1.js" id="Jquery-js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="js/load-data.js"></script>
+
 <!-- <link rel="https://api.w.org/" href="https://thiepdientu.com.vn/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://thiepdientu.com.vn/wp-json/wp/v2/mau-thiep/154"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://thiepdientu.com.vn/xmlrpc.php?rsd"> -->
 <meta name="generator" content="WordPress 6.6.1">
 <!-- <link rel="shortlink" href="https://thiepdientu.com.vn/?p=154">
 <link rel="alternate" title="oNhúng (JSON)" type="application/json+oembed" href="https://thiepdientu.com.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fthiepdientu.com.vn%2Fmau-thiep%2Fmau-thiep-cuoi-korea%2F">
 <link rel="alternate" title="oNhúng (XML)" type="text/xml+oembed" href="https://thiepdientu.com.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fthiepdientu.com.vn%2Fmau-thiep%2Fmau-thiep-cuoi-korea%2F&amp;format=xml"> -->
-		<style type="text/css">
-					.site-title,
-			.site-description {
-				position: absolute;
-				clip: rect(1px, 1px, 1px, 1px);
-				}
-					</style>
-		<link rel="icon" href="images/icon.png" sizes="32x32">
+<style type="text/css">
+  .site-title,
+  .site-description {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  }
+</style>
+<link rel="icon" href="images/icon.png" sizes="32x32">
 <link rel="icon" href="images/icon.png" sizes="192x192">
 <link rel="apple-touch-icon" href="images/icon.png">
 <meta name="msapplication-TileImage" content="https://thiepdientu.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2024/03/26115441/cropped-logo-favicon-270x270.png">
 
-    <link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="css/style.css">
 <script src="js/wp-emoji-release.min.js" defer=""></script></head>
-
-<body class="mau-thiep-template mau-thiep-template-templates mau-thiep-template-korea mau-thiep-template-templateskorea-php single single-mau-thiep postid-154 no-sidebar">
-
-
-
+<body>
 
 <!-- PRELOAD -->
 <div id="preloader" class="uk-position-fixed uk-background-muted uk-position-z-index" style=" left: 0; bottom:0; top:0; width: 100%; z-index:99999;">
@@ -1082,56 +1078,41 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
   <div class="container">
     <form action="" method="post" id="form-wedding" style="background-image:url(images/paper-cut-sweet-pink-envelope-and-heart-with-copy-space-for-design-valentine-s-day-or-love-day-background-concept-send-a-letter-to-a-lover-couple-free-vector.jpg)">
       <h2 class="section-title">Xác nhận tham dự</h2>
-      <h2>Welcome, <span id="user-name"></span>!</h2>
+      <h2 class="banner_location_name" id="guest-name-info"><span id="guest-name"></span> thân mến,</h2>
       <p class="sub-title">Hãy cho chúng mình biết bạn sẽ đến tham dự nhé!</p>
       <p class="sub-title">Chúng mình sẽ chuẩn bị xe và khách sạn cho bạn.</p>
       <div class="form-container">
-        <div class="group-input">
+
+        <div class="group-input" id="guest-name-input">
           <label>Tên Khách Mời</label>
-          <input type="text" class="input" id="f_name" required="" placeholder="Quý danh của bạn">
+          <input type="text" class="input" id="guest-name" required="" placeholder="Quý danh của bạn">
         </div>
         
         <div class="group-input">
           <p class="group-title"></p>
           <div class="group-select">
-            <select name="" id="yesno" class="uk-text-truncate" style="max-width:320px">
+            <select name="" id="attend" class="uk-text-truncate" style="max-width:320px">
               <option value="Có">Có, tôi sẽ đến! ^^</option>
               <option value="Không">Xin lỗi, mình không tham dự được :| </option>
             </select>
             <i class="bx bx-chevron-down"></i>
           </div>
-          <!-- <div class="group-select">
-            <select name="" id="attend_day">
+          <div class="group-select" id="additional-questions">
+            <select name="" id="attend-day">
+              <option value="26">Chỉ ngày 26</option>
               <option value="27">Chỉ ngày 27</option>
               <option value="26-27">Cả 2 ngày</option>
             </select>
             <i class="bx bx-chevron-down"></i>
         </div>
-          <div class="group-select">
-            <select name="" id="num_user">
-              <option value="1">1 Người</option>
-              <option value="2">2 Người</option>
-              <option value="3">3 Người</option>
-            </select>
-            <i class="bx bx-chevron-down"></i>
-        </div> -->
+        </div>
 
-        <!-- <div class="group-input">
-          <label>Tên Khách Mời</label>
-          <input type="text" class="input" id="f_name" required="" placeholder="Quý danh của bạn">
-        </div> -->
-
-        </div>
-        <div class="group-input">
-          <label>Bạn có đi cùng người ấy không? Nếu được, bạn có muốn dự cả 2 ngày không?</label>
-          <textarea name="" id="f_text" cols="30" rows="4"></textarea>
-        </div>
-        <div class="message-form">
-          
-        </div>
         <div class="group-input">
           <button type="submit" class="wedding-submit">Xác nhận</button>
         </div>
+
+        <div id="guest-info"></div>
+
       </div>
 
     </form>
@@ -1139,55 +1120,24 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 </section>
 
 <script>
-  const userData = {
-      "user1": "John Doe",
-      "user2": "Jane Smith",
-      "user3": "Chris Nguyen"
-      // Add more users as needed
-  };
-
-  function getUserIdFromUrl() {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('user');
-  }
-
-  document.addEventListener("DOMContentLoaded", function() {
-      const userId = getUserIdFromUrl();
-      const userName = userData[userId];
-      
-      if (userName) {
-          document.getElementById("user-name").textContent = userName;
-      } else {
-          document.getElementById("user-name").textContent = "Guest";
-      }
-  });
-</script>
-
-<script>
   //XỬ LÝ FORM
 $(document).ready(function(){
   $('.message-form').fadeOut(300)
   $('#form').on('submit', function(e){
       e.preventDefault();
-      // f_userName = "Dương Lộc-Phương Ánh"
-      // f_check = $('input[type="radio"]:checked').val()
-      f_name = $(this).find('#f_name').val()
-      f_select = $('#yesno').find('option:selected').val()
-      // f_attendday = $('#attend_day').find('option:selected').val()
-      // f_numUser = $('#num_user').find('option:selected').val()
-      f_text = $(this).find('#f_text').val()
+      f_id = guestID
+      f_name = document.getElementById("guest-name").value
+      f_select = document.getElementById("attend").value
+      f_day = document.getElementById("attend-day").value
       var form_data = {
-          // 'entry.737056527': f_userName,
-          // 'entry.642873731': f_check,
-          'Name': f_name,
-          'Attend': f_select,
-          // 'Days': f_attendday,
-          // 'Number': f_numUser,
-          'Note': f_text,
+          'id': f_id,
+          'name': f_name,
+          'attend': f_select,
+          'days': f_day,
       }
      $('.wedding-submit[type="submit"]').text('Đang gửi ...')
      $.ajax({
-      url: "https://script.google.com/macros/s/AKfycbwiWivh1i0EYF67E7l32bsDJhFqjdLROW4ZpJ5hMV5QHXSOEfOOzGJrmzae2CdhAk-G/exec",
+      url: "https://script.google.com/macros/s/AKfycby4t0_4jrZ7KaQnFR5BLK7hcvqzSg_dbjrYwAc2FMmnZ09ONEOT_2zcl7zrvwj6J-lt/exec",
       type: "POST",
       data : form_data,
       dataType: "xml",
@@ -1209,6 +1159,7 @@ $(document).ready(function(){
               $('button[type="submit"]').attr('disabled','true')
               $('button[type="submit"]').text('Đã xác nhận')
               $('.message-form').fadeIn(300)
+              console.log(form_data)
           }
       }
       })

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Response Form</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Guest Response Form</h1>
+    <form id="response-form" style="text-align:center;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="attend">Will you attend?</label>
+        <select id="attend" name="attend" required>
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+        <div id="additional-questions" class="hidden">
+            <label for="days">How many days?</label>
+            <input type="number" id="days" name="days"><br><br>
+            <label for="persons">How many persons?</label>
+            <input type="number" id="persons" name="persons"><br><br>
+        </div>
+        <label for="note">Note:</label>
+        <textarea id="note" name="note"></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <h2 style="text-align:center;">Previous Responses</h2>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Attend</th>
+                <th>Days</th>
+                <th>Persons</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('response-form');
+            const attendSelect = document.getElementById('attend');
+            const additionalQuestions = document.getElementById('additional-questions');
+            const dataTable = document.getElementById('data-table').getElementsByTagName('tbody')[0];
+
+            // Show/hide additional questions based on attendance
+            attendSelect.addEventListener('change', function() {
+                if (attendSelect.value === 'Yes') {
+                    additionalQuestions.classList.remove('hidden');
+                } else {
+                    additionalQuestions.classList.add('hidden');
+                }
+            });
+
+            // Fetch and display previous responses
+            fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(row => {
+                        const rowElement = document.createElement('tr');
+                        rowElement.innerHTML = `
+                            <td>${row.Date}</td>
+                            <td>${row.Name}</td>
+                            <td>${row.Attend}</td>
+                            <td>${row.Days}</td>
+                            <td>${row.Persons}</td>
+                            <td>${row.Note}</td>
+                        `;
+                        dataTable.appendChild(rowElement);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+
+            // Handle form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    attend: formData.get('attend'),
+                    days: formData.get('days') || '',
+                    persons: formData.get('persons') || '',
+                    note: formData.get('note')
+                };
+
+                fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
+                    method: 'POST',
+                    body: new URLSearchParams(data)
+                })
+                .then(response => response.text())
+                .then(result => {
+                    alert('Response submitted successfully!');
+                    location.reload(); // Reload the page to show the updated responses
+                })
+                .catch(error => console.error('Error submitting response:', error));
+            });
+        });
+    </script>
+</body>
+</html>

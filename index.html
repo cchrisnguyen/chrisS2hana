@@ -81,9 +81,11 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel="stylesheet" id="footer style-css" href="css/footer.css" media="all">
 <link rel="stylesheet" id="wedding style-css" href="css/wedding.css" media="all">
 <link rel="stylesheet" id="theme-css" href="css/theme.css" media="all">
+<link rel="stylesheet" href="css/bootstrap.css">
 <script src="js/jquery.min.js" id="jquery-core-js"></script>
 <script src="js/jquery-migrate.min.js" id="jquery-migrate-js"></script>
 <script src="js/jquery.min_1.js" id="Jquery-js"></script>
+<script src="js/bootstrap.min.js"></script>
 <!-- <link rel="https://api.w.org/" href="https://thiepdientu.com.vn/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://thiepdientu.com.vn/wp-json/wp/v2/mau-thiep/154"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://thiepdientu.com.vn/xmlrpc.php?rsd"> -->
 <meta name="generator" content="WordPress 6.6.1">
 <!-- <link rel="shortlink" href="https://thiepdientu.com.vn/?p=154">
@@ -135,8 +137,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 
         <div class="banner-container">
 
-          <div class="banner-title"><p>Save  the  Date</p>
-</div>
+          <div class="banner-title"><p>Save  the  Date</p></div>
 
           <div class="banner-name">
 
@@ -316,7 +317,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
         <!-- COUNTDOWN -->
 
 		
-<div class="count-down section-countdown img_bg bg_overlay" style="background-image:url(images/img5.jpg)">
+<div class="count-down section-countdown img_bg bg_overlay" style="background-image:url(images/traucau.jpg)">
         <p class="subtitle">CÙNG ĐẾM NGƯỢC THỜI GIAN</p>
         <h2 class="section-title">
         SAVE THE DATE        </h2>
@@ -1074,146 +1075,17 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
     box-shadow: 0 0 20px rgba(0 0 0 /10%);
 }
 </style>
-<!-- <section id="video">
-<div class="container">
-<p class="subtitle">
-    VIDEO</p>
-<h2 class="section-title">
-    NHŨNG KHOẢNH KHẮC CHÚNG MÌNH</h2>
-</div>
-<div class="video-container">
 
-    <div class="video-list">
-                <div class="video-item">
-            <iframe title="NGÀY TUYỆT VỜI NHẤT | Alcoball's Wedding Anniversary" width="640" height="360" src="https://www.youtube.com/embed/Gui1cA4KRFQ?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>        </div>
-                
-    </div>
-</div>
-</section> -->
-
-<!-- END VIDEO -->
-
-<!-- LỜI CHÚC -->
-
-<!-- TIN NHẮN -->
-<!-- <section id="message" class="section-message uk-background-cover uk-section" style="background-image:url(images/img1.jpg); display:block">
-	<div class="uk-position-cover uk-overlay uk-overlay-primary" style="opacity:.5"> </div>
-      <div class="message-container container uk-position-relative uk-position-z-index">
-        <h2 class="section-title uk-light" style="color:white">
-          Gửi lời chúc đến cặp đôi        </h2>
-        <div class="list_message">
-         
-      
-        </div>
-       
-        <div class="uk-padding-small uk-border-rounded blur-bg" style="border:1px solid white">
-			
-          <h3 class="form-title" style="color:white">Gửi lời chúc</h3>
-          <form action="" id="messageForm" method="POST">
-		
-          <input type="hidden" id="postId" value="154">
-            <div class="input-group uk-margin-top" style="color:white">
-              <label for="">
-                Tên của bạn              </label>
-              <input style="border:1px solid white" id="m_name" type="text" class="input blur-bg" value="" required="">
-            </div>
-            <div class="input-group uk-margin-top">
-              <label for="" style="color:white">
-                Lời nhắn gửi              </label>
-              <textarea style="border:1px solid white; color:white" id="m_text" class="input-text text-white blur-bg" name="" cols="30" rows="5" required=""></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary send_message uk-margin-top" style="color:white">Gửi lời chúc</button>
-          </form>
-        </div>
-      </div>
-    </section> -->
-    <!-- END TIN NHẮN -->
-<script>
-fetch('/wp-json/wp/v2/comments?post=154&per_page=100',
-    {
-     method: 'GET',
-    }
-    )
-    
-  .then(response => response.json())
-  .then(data => {
-    mess_item = ''
-    for(let i in data){
-        if(!i) {
-          $('.list_message').attr('class','hidden')
-        }
-        c_author = data[i].author_name
-        c_content = data[i].content.rendered
-       
-        mess_item += '<div class="blur-bg uk-padding-small uk-border-rounded uk-light"> <h3 class="user_message">'+c_author+'</h3> <p class="message_body">'+c_content+'</p> </div>'
-    }
-    $('.list_message').html(mess_item)
-  })
-
-  //FORM
- $('#messageForm').submit(function (e) { 
-  e.preventDefault();
-  const postId = $(this).find('#postId').val()
-  const name = $(this).find('#m_name').val()
-  const mess = $(this).find('#m_text').val()
-  const data = JSON.stringify({
-    post: postId,
-    author_name: name,
-    content: mess,
-  });
-  ACTION_URL = '/wp-json/wp/v2/comments'
-  fetch(ACTION_URL, {
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: data,
-  })
-    .then((response) => {
-      if (response.ok === true) {
-        mess_new = '<div class=" uk-light blur-bg uk-padding-small uk-border-rounded" data-aos="fade-up" data-aos-duration="2000"> <i class="bx bxs-quote-alt-left"></i> <h3 class="user_message">'+name+'</h3> <p class="message_body">'+mess+'</p> </div>'
-        $('.list_message').prepend(mess_new)
-        $('#messageForm')[0].reset()
-      }
-      return response.json();
-    })
-    .then((object) => {
-      // Comment submission failed.
-      // Output `object.message` to see the error message.
-    })
-    .catch(error => console.error('Error:', error));
- });
- 
-</script>
-
-<!-- END LỜI CHÚC -->
-
-
-
-<!-- FORM XÁC NHẬN -->
 
 <!-- FROM XÁC NHẬN -->
 <section id="form" class="form" style="display:block">
   <div class="container">
     <form action="" method="post" id="form-wedding" style="background-image:url(images/paper-cut-sweet-pink-envelope-and-heart-with-copy-space-for-design-valentine-s-day-or-love-day-background-concept-send-a-letter-to-a-lover-couple-free-vector.jpg)">
       <h2 class="section-title">Xác nhận tham dự</h2>
+      <h2>Welcome, <span id="user-name"></span>!</h2>
       <p class="sub-title">Hãy cho chúng mình biết bạn sẽ đến tham dự nhé!</p>
       <p class="sub-title">Chúng mình sẽ chuẩn bị xe và khách sạn cho bạn.</p>
       <div class="form-container">
-              <!-- <div class="group-radio">
-        
-          <label class="radio-container">TƯ GIA            <span class="tooltip"> <p>ẤP TÂN PHÚ A, XÃ TÂN BÌNH, HUYỆN THANH BÌNH, TỈNH ĐỒNG THÁP</p>
- </span>
-            <input type="radio" name="fav_language" id="nha_trai" value="TƯ GIA">
-            <span class="checkmark"></span>
-          </label>
-          
-          <label class="radio-container">TƯ GIA            <span class="tooltip"> <p>ẤP H�&nbsp;, XÃ TÂN BÌNH, HUYỆN THANH BÌNH, TỈNH ĐỒNG THÁP</p>
- </span>
-            <input type="radio" name="fav_language" id="nha_trai" value="TƯ GIA">
-            <span class="checkmark"></span>
-          </label>
-                  </div> -->
         <div class="group-input">
           <label>Tên Khách Mời</label>
           <input type="text" class="input" id="f_name" required="" placeholder="Quý danh của bạn">
@@ -1265,6 +1137,31 @@ fetch('/wp-json/wp/v2/comments?post=154&per_page=100',
     </form>
   </div>
 </section>
+
+<script>
+  const userData = {
+      "user1": "John Doe",
+      "user2": "Jane Smith",
+      "user3": "Chris Nguyen"
+      // Add more users as needed
+  };
+
+  function getUserIdFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('user');
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+      const userId = getUserIdFromUrl();
+      const userName = userData[userId];
+      
+      if (userName) {
+          document.getElementById("user-name").textContent = userName;
+      } else {
+          document.getElementById("user-name").textContent = "Guest";
+      }
+  });
+</script>
 
 <script>
   //XỬ LÝ FORM
@@ -1321,53 +1218,6 @@ $(document).ready(function(){
 </script>
 
 <!-- END FORM XÁC NHẬN -->
-
-
-
-<!-- GỬI QUÀ -->
-
-<!-- <section id="gift" class="section-gift" style="display:block">
-      <div class="container">
-        <p class="subtitle"></p>
-        <h2 class="uk-heading-small uk-text-center script-font uk-text-cappercase">GỬI QUÀ ĐẾN CÔ DÂU VÀ CHÚ RỂ</h2>
-                <a href="#box-gift" data-fancybox="" class="btn btn-primary">
-          <svg width="54" height="54" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-            <g fill="#fff">
-                <path d="M208 128v72a8 8 0 0 1-8 8H56a8 8 0 0 1-8-8v-72Z" opacity=".2"></path>
-                <path d="M216 72h-35.08c.39-.33.79-.65 1.17-1A29.53 29.53 0 0 0 192 49.57A32.62 32.62 0 0 0 158.44 16A29.53 29.53 0 0 0 137 25.91a54.94 54.94 0 0 0-9 14.48a54.94 54.94 0 0 0-9-14.48A29.53 29.53 0 0 0 97.56 16A32.62 32.62 0 0 0 64 49.57A29.53 29.53 0 0 0 73.91 71c.38.33.78.65 1.17 1H40a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16v64a16 16 0 0 0 16 16h144a16 16 0 0 0 16-16v-64a16 16 0 0 0 16-16V88a16 16 0 0 0-16-16m-67-35.49a13.69 13.69 0 0 1 10-4.5h.49A16.62 16.62 0 0 1 176 49.08a13.69 13.69 0 0 1-4.5 10c-9.49 8.4-25.24 11.36-35 12.4c1.2-10.59 4.5-25.98 12.5-34.97m-64.09.36A16.63 16.63 0 0 1 96.59 32h.49a13.69 13.69 0 0 1 10 4.5c8.39 9.48 11.35 25.2 12.39 34.92c-9.72-1-25.44-4-34.92-12.39a13.69 13.69 0 0 1-4.5-10a16.6 16.6 0 0 1 4.82-12.16ZM40 88h80v32H40Zm16 48h64v64H56Zm144 64h-64v-64h64Zm16-80h-80V88h80z"></path>
-            </g>
-        </svg>
-          
-        </a>
-        <div id="box-gift">
-        <div class="gift-container" id="gift-container">
-                              <div class="gift-card">
-                    <div class="gift-qr">
-                        <img src="images/qrchure.jpg" alt="" class="groom_qr" style="max-width:100%">
-                    </div>
-                    <div class="gift-body">
-                    <p>Dương Lộc</p>
-                    </div>
-                </div> 
-                                <div class="gift-card">
-                    <div class="gift-qr">
-                        <img src="images/e402af2f34e28fbcd6f3.jpg" alt="" class="groom_qr" style="max-width:100%">
-                    </div>
-                    <div class="gift-body">
-                    <p>Lê Hảo</p>
-                    </div>
-                </div>
-                           
-        </div>
-        </div>
-        
-      </div>
-
-
-    </section> -->
-    
-<!-- END GỬI QUÀ -->
-
 
 
 <!-- THANKYOU -->

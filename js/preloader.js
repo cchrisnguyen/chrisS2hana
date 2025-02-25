@@ -1,3 +1,8 @@
- // preloader
- const preloader  = document.getElementById('preloader')
- document.addEventListener("DOMContentLoaded", setTimeout(function pre() {preloader.classList.add('uk-hidden')},500));
+// preloader
+const preloader = document.getElementById('preloader');
+
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        preloader.classList.add('uk-hidden');
+    }, 500);
+});

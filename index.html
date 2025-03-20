@@ -1126,7 +1126,7 @@ $(document).ready(function(){
   $('#form').on('submit', function(e){
       e.preventDefault();
       f_id = guestID
-      f_name = document.getElementById("guest-name").value
+      f_name = document.getElementById("guest-name").textContent
       f_select = document.getElementById("attend").value
       f_day = document.getElementById("attend-day").value
       var form_data = {
